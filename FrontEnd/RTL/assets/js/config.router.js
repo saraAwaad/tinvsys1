@@ -127,7 +127,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
                 }
             })
             .state('app.purchases.quote_edit', {
-                url: '/quote_edit/:quote_ID',
+                url: '/quote_edit/:Quote_ID',
                 templateUrl: "assets/views/Quote/edit/quote_edit.html",
                 title: 'تعديل عرض الاسعار',
                 ncyBreadcrumb: {

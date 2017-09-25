@@ -20,24 +20,81 @@
                         <div class="col-md-12">
                             <fieldset>
                                 <legend>
-                                    بيانات الطلب
+                                    بيانات عرض الاسعار
                                 </legend>
                                 <div class="col-md-6 form-group" ng-class="{'has-error':Form.Original_Request_Date.$dirty && Form.Original_Request_Date.$invalid, 'has-success':Form.Original_Request_Date.$valid}">
                                     <label class="control-label">
-                                        تاريخ الطلب <span class="symbol required"></span>
+                                        السيد<span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="تاريخ الطلب" class="form-control" name="Original_Request_Date" uib-datepicker-popup="{{format}}" ng-model="myModel.Original_Request_Date" is-open="inputopened" ng-init="inputopened = false" ng-click="inputopened = !inputopened" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" />
-                                    <span class="error text-small block" ng-if="Form.Original_Request_Date.$dirty && Form.Original_Request_Date.$invalid">تاريخ الطلب مطلوب</span>
+                                    <input type="text" placeholder="اسم المورد" class="form-control" name="Quote_supplier" uib-datepicker-popup="{{format}}" ng-model="myModel.Quote_supplier" is-open="inputopened" ng-init="inputopened = false" ng-click="inputopened = !inputopened" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" />
+                                    <span class="error text-small block" ng-if="Form.Original_Request_Date.$dirty && Form.Original_Request_Date.$invalid">اسم المورد مطلوب</span>
                                     <span class="success text-small" ng-if="Form.Original_Request_Date.$valid">المدخل صحيح</span>
-                                </div>
-                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Purchase_Requester.$dirty && Form.Purchase_Requester.$invalid, 'has-success':Form.Purchase_Requester.$valid}">
+                                </div> 
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Quote_Date.$dirty && Form.Quote_Date.$invalid, 'has-success':Form.Original_Request_Date.$valid}">
                                     <label class="control-label">
-                                        اسم الطالب <span class="symbol required"></span>
+                                        تحريرا فى <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="اسم الطالب" class="form-control" name="Purchase_Requester" ng-model="myModel.Purchase_Requester" required />
-                                    <span class="error text-small block" ng-if="Form.Purchase_Requester.$dirty && Form.Purchase_Requester.$invalid">اسم الطالب مطلوب</span>
-                                    <span class="success text-small" ng-if="Form.Purchase_Requester.$valid">المدخل صحيح</span>
+                                    <input type="text" placeholder="التاريخ" class="form-control" name="Quote_Date" uib-datepicker-popup="{{format}}" ng-model="myModel.Quote_Date" is-open="inputopened" ng-init="inputopened = false" ng-click="inputopened = !inputopened" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" />
+                                    <span class="error text-small block" ng-if="Form.Quote_Date.$dirty && Form.Quote_Date.$invalid">التاريخ مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Quote_Date.$valid">المدخل صحيح</span>
                                 </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Quote_ID.$dirty && Form.Quote_ID.$invalid, 'has-success':Form.Quote_ID.$valid}">
+                                    <label class="control-label">
+                                        رقم العرض <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="رقم العرض" class="form-control" name="Quote_ID" ng-model="myModel.Quote_ID" required />
+                                    <span class="error text-small block" ng-if="Form.Quote_ID.$dirty && Form.Quote_ID.$invalid">رقم العرض مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Quote_ID.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Contract_period.$dirty && Form.Contract_period.$invalid, 'has-success':Form.Contract_period.$valid}">
+                                    <label class="control-label">
+                                        مدة الارتباط <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="مدة الارتباط" class="form-control" name="Contract_period" ng-model="myModel.Contract_period" required />
+                                    <span class="error text-small block" ng-if="Form.Contract_period.$dirty && Form.Contract_period.$invalid"> مدة الارتباط مطلوب </span>
+                                    <span class="success text-small" ng-if="Form.Contract_period.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Payment_terms.$dirty && Form.Payment_terms.$invalid, 'has-success':Form.Payment_terms.$valid}">
+                                    <label class="control-label">
+                                         شروط الدفع <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="شروط الدفع" class="form-control" name="Contract_period" ng-model="myModel.Payment_terms" required />
+                                    <span class="error text-small block" ng-if="Form.Payment_terms.$dirty && Form.Payment_terms.$invalid"> شروط الدفع مطلوب </span>
+                                    <span class="success text-small" ng-if="Form.Payment_terms.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Receipt_terms.$dirty && Form.Receipt_terms.$invalid, 'has-success':Form.Receipt_terms.$valid}">
+                                    <label class="control-label">
+                                        شروط التسليم<span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="مدة الارتباط" class="form-control" name="Contract_period" ng-model="myModel.Receipt_terms" required />
+                                    <span class="error text-small block" ng-if="Form.Receipt_terms.$dirty && Form.Receipt_terms.$invalid">شروط التسليم مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Receipt_terms.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Supply_Duration.$dirty && Form.Supply_Duration.$invalid, 'has-success':Form.Supply_Duration.$valid}">
+                                    <label class="control-label">
+                                        مدة التوريد <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="مدة التوريد" class="form-control" name="Supply_Duration" ng-model="myModel.Supply_Duration" required />
+                                    <span class="error text-small block" ng-if="Form.Supply_Duration.$dirty && Form.Supply_Duration.$invalid">مطلوب مدة التوريد</span>
+                                    <span class="success text-small" ng-if="Form.Supply_Duration.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Tax_File_No.$dirty && Form.Tax_File_No.$invalid, 'has-success':Form.Tax_File_No.$valid}">
+                                    <label class="control-label">
+                                        رقم الملف الضريبى <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="رقم الملف الضريبى" class="form-control" name="Tax_File_No" ng-model="myModel.Tax_File_No" required />
+                                    <span class="error text-small block" ng-if="Form.Tax_File_No.$dirty && Form.Tax_File_No.$invalid">رقم الملف الضريبى مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Tax_File_No.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Tax_Card_No.$dirty && Form.Tax_Card_No.$invalid, 'has-success':Form.Tax_File_No.$valid}">
+                                    <label class="control-label">
+                                        رقم البطاقة الضريبية <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="رقم البطاقة الضريبية" class="form-control" name="Tax_Card_No" ng-model="myModel.Tax_Card_No" required />
+                                    <span class="error text-small block" ng-if="Form.Tax_Card_No.$dirty && Form.Tax_Card_No.$invalid">رقم البطاقة الضريبية مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Tax_Card_No.$valid">المدخل صحيح</span>
+                                </div>
+
                                 <div class="col-md-12  form-group">
                                     <label class="control-label">
                                         ملاحظات

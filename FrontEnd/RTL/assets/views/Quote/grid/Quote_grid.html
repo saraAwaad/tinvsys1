@@ -28,26 +28,29 @@
 
             <div ng-controller="QuoteCtrl">
                 <table ng-table="tableParams" show-filter="true" class="table table-striped">
-                    <tr ng-repeat="pRequest in $data">
+                    <tr ng-repeat="item in $data">
                         <td data-title="'#'">{{$index+1}}</td>
 
-                        <td data-title="'كودالطلب'" filter="{ 'Purchase_Request_ID': 'text' }" sortable="'Purchase_Request_ID'"> {{pRequest.Purchase_Request_ID}} </td>
-                        <td data-title="'تاريخ انشاء الطلب'" filter="{ 'Purchase_Request_Date': 'text' }" sortable="'Purchase_Request_Date'"> {{pRequest.Purchase_Request_Date}} </td>
-                        <td data-title="'تاريخ التقدم للطلب'" filter="{ 'Original_Request_Date': 'text' }" sortable="'Original_Request_Date'">{{pRequest.Original_Request_Date}}</td>
-                        <td data-title="'مقدم من'" filter="{ 'Purchase_Requester': 'text' }" sortable="'Purchase_Requester'">{{pRequest.Purchase_Requester}}</td>
-                        <td data-title="'ملاحظات'" filter="{ 'Notes': 'text' }" sortable="'Notes'">{{pRequest.Notes}}</td>
+                        <td data-title="'رقم العرض'" filter="{ 'Quote_ID': 'text' }" sortable="'Quote_ID'"> {{item.Quote_ID}} </td>
+                        <td data-title="'التاريخ'" filter="{ 'Quote_Date': 'text' }" sortable="'Quote_Date'"> {{item.Purchase_Quote_Date}} </td>
+                        <td data-title="'المورد'" filter="{ 'Quote_supplier': 'text' }" sortable="'Quote_supplier'">{{item.Quote_supplier}}</td>
+                        <td data-title="'مدة الارتباط'" filter="{ 'Contract_period': 'text' }" sortable="'Contract_period'">{{item.Contract_period}}</td>
+                        <td data-title="'مدة التوريد'" filter="{ 'Supply_Duration': 'text' }" sortable="'Supply_Duration'">{{item.Supply_Duration}}</td>
+                        <td data-title="'رقم الملف الضريبى'" filter="{ 'Tax_File_No': 'text' }" sortable="'Tax_File_No'">{{item.Tax_File_No}}</td>
+                        <td data-title="'رقم البطاقة الضريبية'" filter="{ 'Tax_Card_No': 'text' }" sortable="'Tax_Card_No'">{{item.Tax_Card_No}}</td>
+                        <td data-title="'ملاحظات'" filter="{ 'Notes': 'text' }" sortable="'Notes'">{{item.Notes}}</td>
                         <td data-title="'عمليات'">
 
 
-                            <a ui-sref="app.purchases.quote_edit({quote_ID:{{pRequest.Purchase_Request_ID}}})" title="تعديل"><i class="fa fa-edit (alias)"></i></a>
-                            <a title="حذف" ng-click="deleteRow(pRequest.Purchase_Request_ID)"><i class="fa fa-trash-o"></i></a>
-                            <a title="أرشيف" ng-click="archieveRow(pRequest.Purchase_Request_ID)"><i class="fa fa-archive"></i></a>
+                            <a ui-sref="app.purchases.quote_edit({Quote_ID:{{item.Quote_ID}}})" title="تعديل"><i class="fa fa-edit (alias)"></i></a>
+                            <a title="حذف" ng-click="deleteRow(item.Quote_ID)"><i class="fa fa-trash-o"></i></a>
+                            <a title="أرشيف" ng-click="archieveRow(item.Quote_ID)"><i class="fa fa-archive"></i></a>
 
                         </td>
 
                     </tr>
-                    <tr ng-show="!purchaseRequests.length">
-                        <td colspan="7" style="text-align:center">لا توجد بيانات</td>
+                    <tr ng-show="!quotes.length">
+                        <td colspan="9" style="text-align:center">لا توجد بيانات</td>
                     </tr>
                 </table>
             </div>

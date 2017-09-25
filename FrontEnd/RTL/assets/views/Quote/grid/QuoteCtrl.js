@@ -4,38 +4,47 @@
  * Simple table with sorting and filtering on AngularJS
  */
 var data = [{
-    Purchase_Request_ID: "10",
-    Purchase_Request_Date: '324234234',
-    Original_Request_Date: 'sdfsdfsd',
-    Purchase_Requester: 'sdasdsadas',
+    Quote_ID: "10",
+    Quote_Date: '324234234',
+    Quote_supplier: 'sdfsdfsd',
+    Contract_period: '12 months',
+    Supply_Duration: '1 month',
+    Tax_File_No: '623727',
+    Tax_Card_No:'787488',
     Notes: 'text'
 },
 {
-    Purchase_Request_ID: "12",
-    Purchase_Request_Date: '324234234',
-    Original_Request_Date: 'sdfsdfsd',
-    Purchase_Requester: 'sdasdsadas',
-    Notes: 'ali'
+    Quote_ID: "12",
+    Quote_Date: '324234234',
+    Quote_supplier: 'sdfsdfsd',
+    Contract_period: '12 months',
+    Supply_Duration: '1 month',
+    Tax_File_No: '623727',
+    Tax_Card_No: '787488',
+    Notes: 'hi'
 }
 ];
 
 app.controller('QuoteCtrl', ["$scope", "$filter", "ngTableParams", "$timeout", "SweetAlert", function ($scope, $filter, ngTableParams, $timeout, SweetAlert) {
 
     $scope.header = [
-        { title: "كودالطلب", name: "Purchase_Request_ID" },
-        { title: "تاريخ الانشاء ", name: "Purchase_Request_Date" },
-        { title: "تاريخ التقدم للطلب", name: "Original_Request_Date" },
-        { title: "مقدم من", name: "Purchase_Requester" },
+        { title: "رقم العرض", name: "Quote_ID" },
+        { title: "التاريخ ", name: "Quote_Date" },
+        { title: "المورد", name: "Quote_supplier" },
+        { title: " مدة الارتباط", name: "Contract_period" },
+        { title: "مدة التوريد", name: "Supply_Duration" },
+        { title: "رقم الملف الضريبى", name: "Tax_File_No" },
+        { title: "رقم البطاقة الضريبية", name: "Tax_Card_No" },
         { title: "ملاحظات", name: "Notes" }
     ];
     $scope.tableParams = new ngTableParams({
         page: 1, // show first page
         count: 5, // count per page
         sorting: {
-            Purchase_Request_ID: 'asc' // initial sorting
+            Quote_ID: 'asc' // initial sorting
         }, // count per page
         filter: {
-            Purchase_Request_ID: '' // initial filter
+            Quote_ID: '' // initial filter
         }
     }, {
             total: data.length,
@@ -44,12 +53,12 @@ app.controller('QuoteCtrl', ["$scope", "$filter", "ngTableParams", "$timeout", "
                 var orderedData = params.filter() ? $filter('filter')(data, params.filter()) : data;
 
                 orderedData = params.sorting() ? $filter('orderBy')(orderedData, params.orderBy()) : orderedData;
-                $scope.purchaseRequests = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                $scope.quotes = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
 
                 params.total(orderedData.length);
 
                 // set total for recalc pagination
-                $defer.resolve($scope.purchaseRequests);
+                $defer.resolve($scope.quotes);
             }
         });
 
@@ -88,7 +97,7 @@ app.controller('QuoteCtrl', ["$scope", "$filter", "ngTableParams", "$timeout", "
     }
 
     var deleteFromDB = function (id) {
-        alert(id);
+      //  alert(id);
     }
 
 
