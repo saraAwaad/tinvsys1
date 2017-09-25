@@ -1,0 +1,56 @@
+﻿<!-- start: PAGE TITLE -->
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2 class="mainTitle">عروض الاسعار</h2>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE app.purchasingRequest_insert-->
+<!-- start: TABLE WITH FILTERS -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="margin-bottom-30">
+            <nav id="cl-effect-2" class="links cl-effect-2 pull-right">
+                <a ui-sref="app.purchases.quote_insert"><span data-hover="جـديــــد">جـديــــد</span></a>
+                <a href><span data-hover="الأرشيف">الأرشيف</span></a>
+            </nav>
+        </div>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--<h5 class="over-title margin-bottom-15">Table <span class="text-bold">with filters</span></h5>-->
+
+
+            <div ng-controller="QuoteCtrl">
+                <table ng-table="tableParams" show-filter="true" class="table table-striped">
+                    <tr ng-repeat="pRequest in $data">
+                        <td data-title="'#'">{{$index+1}}</td>
+
+                        <td data-title="'كودالطلب'" filter="{ 'Purchase_Request_ID': 'text' }" sortable="'Purchase_Request_ID'"> {{pRequest.Purchase_Request_ID}} </td>
+                        <td data-title="'تاريخ انشاء الطلب'" filter="{ 'Purchase_Request_Date': 'text' }" sortable="'Purchase_Request_Date'"> {{pRequest.Purchase_Request_Date}} </td>
+                        <td data-title="'تاريخ التقدم للطلب'" filter="{ 'Original_Request_Date': 'text' }" sortable="'Original_Request_Date'">{{pRequest.Original_Request_Date}}</td>
+                        <td data-title="'مقدم من'" filter="{ 'Purchase_Requester': 'text' }" sortable="'Purchase_Requester'">{{pRequest.Purchase_Requester}}</td>
+                        <td data-title="'ملاحظات'" filter="{ 'Notes': 'text' }" sortable="'Notes'">{{pRequest.Notes}}</td>
+                        <td data-title="'عمليات'">
+
+
+                            <a ui-sref="app.purchases.quote_edit({quote_ID:{{pRequest.Purchase_Request_ID}}})" title="تعديل"><i class="fa fa-edit (alias)"></i></a>
+                            <a title="حذف" ng-click="deleteRow(pRequest.Purchase_Request_ID)"><i class="fa fa-trash-o"></i></a>
+                            <a title="أرشيف" ng-click="archieveRow(pRequest.Purchase_Request_ID)"><i class="fa fa-archive"></i></a>
+
+                        </td>
+
+                    </tr>
+                    <tr ng-show="!purchaseRequests.length">
+                        <td colspan="7" style="text-align:center">لا توجد بيانات</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿<!-- start: PAGE TITLE -->
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2 class="mainTitle">المستخدمين</h2>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE app.purchasingRequest_insert-->
+<!-- start: TABLE WITH FILTERS -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="margin-bottom-30">
+            <nav id="cl-effect-2" class="links cl-effect-2 pull-right">
+                <a ui-sref="app.employees_insert"><span data-hover="جـديــــد">جـديــــد</span></a>
+                <a href><span data-hover="الأرشيف">الأرشيف</span></a>
+            </nav>
+        </div>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--<h5 class="over-title margin-bottom-15">Table <span class="text-bold">with filters</span></h5>-->
+
+
+            <div ng-controller="employeeCtrl">
+                <table ng-table="tableParams" show-filter="true" class="table table-striped">
+                    <tr ng-repeat="emp in $data">
+                        <td data-title="'#'">{{$index+1}}</td>
+                        <!-- "notes": "0 ملاحظات" },-->
+
+                        <td data-title="'كودالموظف'" filter="{ 'id': 'text' }" sortable="'id'"> {{emp.id}} </td>
+                        <td data-title="'اسم الموظف'" filter="{ 'employeeName': 'text' }" sortable="'employeeName'"> {{emp.employeeName}} </td>
+                        <td data-title="'اللقب'" filter="{ 'employeeTitle': 'text' }" sortable="'employeeTitle'">{{emp.employeeTitle}}</td>
+                        <td data-title="'هاتف العمل'" filter="{ 'workPhone': 'text' }" sortable="'workPhone'">{{emp.workPhone}}</td>
+                        <td data-title="'البريد الالكتروني'" filter="{ 'email': 'text' }" sortable="'email'">{{emp.email}}</td>
+                        <td data-title="'عمليات'">
+
+
+                            <a ui-sref="app.employee_edit({id:{{emp.id}}})" title="تعديل"><i class="fa fa-edit (alias)"></i></a>
+                            <a title="حذف" ng-click="deleteRow(emp.id)"><i class="fa fa-trash-o"></i></a>
+                            <a title="أرشيف" ng-click="archieveRow(emp.id)"><i class="fa fa-archive"></i></a>
+
+                        </td>
+
+                    </tr>
+                    <tr ng-show="!employees.length">
+                        <td colspan="7" style="text-align:center">لا توجد بيانات</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

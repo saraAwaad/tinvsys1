@@ -1,0 +1,230 @@
+﻿<!-- start: SEARCH FORM -->
+<div class="search-form">
+    <a class="s-open" href="#">
+        <i class="ti-search"></i>
+    </a>
+    <form class="navbar-form" role="search">
+        <a class="s-remove" href="#" ng-toggle-class="search-open" target=".navbar-form">
+            <i class="ti-close"></i>
+        </a>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="{{ 'sidebar.search.PLACEHOLDER' | translate }}">
+            <button class="btn search-button" type="submit">
+                <i class="ti-search"></i>
+            </button>
+        </div>
+    </form>
+</div>
+<!-- end: SEARCH FORM -->
+<!-- start: MAIN NAVIGATION MENU -->
+<!--<div class="navbar-title">
+    <span translate="sidebar.heading.NAVIGATION">Main Navigation</span>
+</div>-->
+<ul class="main-navigation-menu">
+    <li ui-sref-active="active">
+        <a ui-sref="app.dashboard">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-home"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title">الرئيسية </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.calender">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> التقويم </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.messages">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-envelope"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> الرسائل </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!--<li ui-sref-active="active">
+        <a ui-sref="app.test">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-comment-o"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> الاشعارات </span>
+                </div>
+            </div>
+        </a>
+    </li>-->
+    <li ui-sref-active="active">
+        <a ui-sref="app.employees">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-group"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> المستخدمين </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-money"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> المشتريات </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a ui-sref="app.purchases.purchasingRequest">
+                    طلبات شراء
+                </a>
+            </li>
+            <li class="sub-menu">
+                <a ui-sref="app.purchases.Quote">
+                    عروض اسعار
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    اوامر توريد
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    لجان فحص
+                </a>
+            </li>
+
+        </ul>
+    </li>
+    <li>
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-th-large"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> المخازن </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="#">
+                    شجرة الاصناف
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    دفتر الشطب
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    دفتر الاضافة
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    الرصيد الافتتاحي
+                </a>
+            </li>
+
+        </ul>
+    </li>
+
+    <li>
+        <a href="javascript:void(0)">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-bug"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> العهد </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a href="#">
+                    التضامنية
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    الفردية
+                </a>
+            </li>
+
+
+        </ul>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.reports">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="fa fa-file-text-o"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> التقارير </span>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.settings">
+            <div class="item-content">
+                <div class="item-media">
+                    <i class="ti-settings"></i>
+                </div>
+                <div class="item-inner">
+                    <span class="title"> الاعدادات </span><i class="icon-arrow"></i>
+                </div>
+            </div>
+        </a>
+        <ul class="sub-menu">
+            <li>
+                <a ui-sref="app.generalSettings">
+                    اعدادات عامة
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    اعدادات الحماية
+                </a>
+
+            </li>
+            <li>
+                <a ui-sref="app.units">
+                    الوحدات
+                </a>
+
+            </li>
+        </ul>
+    </li>
+
+
+
+</ul>
+
+<!-- end: DOCUMENTATION BUTTON -->

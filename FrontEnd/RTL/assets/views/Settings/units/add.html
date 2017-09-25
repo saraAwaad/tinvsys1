@@ -1,0 +1,66 @@
+﻿<!-- start: PAGE TITLE -->
+<section id="page-title">
+	<div class="row">
+		<div class="col-sm-8">
+			<h1 class="mainTitle" >ادراج صنف جديد</h1>
+		</div>
+		<div ncy-breadcrumb></div>
+	</div>
+</section>
+<!-- end: PAGE TITLE -->
+<!-- start: FORM VALIDATION -->
+<div class="container-fluid container-fullw bg-white">
+	<div class="row">
+		<div class="col-md-12">
+			<div ng-controller="ValidationCtrl">
+				<form name="Form" id="form1" novalidate ng-submit="form.submit(Form)">
+					<div class="row">
+
+
+
+                        <div class="col-md-12">
+                            <fieldset>
+                                <legend>
+                                    بيانات الوحدة
+                                </legend>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label> اسم الوحدة </label>
+                                            <input type="text" name="firstName" class="form-control" placeholder="اسم الوحدة">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label"> ملاحظات </label>
+                                            <textarea  name="nots" class="form-control" placeholder="برجاء كتابه الملاحظات التي ترونها مناسبة"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+                            </fieldset>
+                            
+                        </div>
+
+
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="pull-right">
+								<button type="submit" class="btn btn-primary">
+									حفــظ
+								</button>
+								<button type="reset" class="btn btn-primary btn-o" ng-click="form.reset(Form)">
+									مسح
+								</button>
+								
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end: FORM VALIDATION -->

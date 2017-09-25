@@ -1,0 +1,102 @@
+﻿<!-- start: PAGE TITLE -->
+
+<style>
+    .dt-buttons {
+        text-align: left
+    }
+
+    .buttons-html5, .buttons-print {
+        background-color: #f1f1f1;
+        color: #0044ff;
+        font-weight: 300;
+        font-size: 8pt;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-left: 10px;
+        width: auto;
+        height: auto;
+    }
+
+        .buttons-html5:hover, .buttons-print:hover {
+            background-color: #1083e5;
+            color: #ffffff;
+        }
+</style>
+
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle"><strong> الموظفين</strong></h1>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE -->
+<!-- start: BASIC TABLE -->
+<div class="container-fluid container-fullw bg-white" ng-controller="employeesCtrl">
+    <div class="row">
+        <div data-ng-init="onPageload()">
+            <div ng-include="divSearch"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!--todo: change ui-sref-->
+                    <a ui-sref="app.employees" class="btn grey-cascade">
+                        <strong>
+                            <i class="fa fa-plus"></i>&nbsp;جديد
+                        </strong>
+                    </a>
+                    <!--<a ng-click="Companies_Search()" class="btn grey-cascade">
+                        <i class="fa fa-search"></i>&nbsp;بحث
+                    </a>-->
+                </div>
+                <br />
+                <div class="col-md-12">
+                    <!-- Begin: life time stats -->
+
+
+
+
+
+
+
+
+
+                    <div class="container-fluid container-fullw">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--<h5 class="over-title margin-bottom-15">Table <span class="text-bold">with filters</span></h5>-->
+                                <div>
+                                    <table ng-table="tableParams" show-filter="true" class="table table-striped">
+                                        <tr ng-repeat="user in $data">
+                                            <td data-title="'#'">{{$index + 1}}</td>
+                                            <td data-title="'اسم الموظف'" filter="{ 'employeeName': 'text' }" sortable="'employeeName'"> {{user.employeeName}} </td>
+                                            <td data-title="'اللقب'" filter="{ 'employeeTitle': 'text' }" sortable="'employeeTitle'">{{user.employeeTitle}}</td>
+                                            <td data-title="'هاتف العمل'" filter="{ 'workPhone': 'text' }" sortable="'workPhone'">{{user.workPhone}}</td>
+                                            <td data-title="'البريد الالكتروني'" filter="{ 'email': 'text' }" sortable="'email'">{{user.email}}</td>
+                                            <td data-title="'الملاحظات'" filter="{ 'gender': 'text' }" sortable="'notes'">{{user.notes}}</td>
+                                            <td data-title="'عمليات'">
+
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs">
+                                                    <a href="#" class="btn btn-transparent btn-xs" tooltip-placement="top" uib-tooltip="تعديل"><i class="fa fa-pencil"></i></a>
+                                                    <a href="#" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="مشاركة"><i class="fa fa-share"></i></a>
+                                                    <a href="#" ng-click="delete($index)" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" uib-tooltip="حذف"><i class="fa fa-times fa fa-white"></i></a>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- end: BASIC TABLE -->
