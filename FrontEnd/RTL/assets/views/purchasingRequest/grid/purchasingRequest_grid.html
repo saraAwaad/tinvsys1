@@ -28,7 +28,7 @@
 
             <div ng-controller="purchasingRequestCtrl">
                 <table ng-table="tableParams" show-filter="true" class="table table-striped">
-                    <tr ng-repeat="pRequest in $data">
+                    <tr ng-repeat="pRequest in dataRequest">
                         <td data-title="'#'">{{$index+1}}</td>
 
                         <td data-title="'كودالطلب'" filter="{ 'Purchase_Request_ID': 'text' }" sortable="'Purchase_Request_ID'"> {{pRequest.Purchase_Request_ID}} </td>

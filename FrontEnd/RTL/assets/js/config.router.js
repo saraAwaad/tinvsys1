@@ -135,6 +135,33 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
                 }
             })
 
+            .state('app.purchases.order', {
+                url: '/order',
+                templateUrl: "assets/views/Order/grid/order_grid.html",
+                title: 'أوامر توريد',
+                icon: 'ti-layout-media-left-alt',
+                ncyBreadcrumb: {
+                    label: 'أوامر توريد'
+                },
+                resolve: loadSequence('ngTable')
+            })
+            .state('app.purchases.order_insert', {
+                url: '/order_insert',
+                templateUrl: "assets/views/Order/insert/order_insert.html",
+                title: 'امر توريد جديد',
+                ncyBreadcrumb: {
+                    label: 'امر توريد جديد'
+                }
+            })
+            .state('app.purchases.order_edit', {
+                url: '/order_edit/:order_ID',
+                templateUrl: "assets/views/Order/edit/order_edit.html",
+                title: 'تعديل امر توريد',
+                ncyBreadcrumb: {
+                    label: 'تعديل امر توريد'
+                }
+            })
+
 
 
 

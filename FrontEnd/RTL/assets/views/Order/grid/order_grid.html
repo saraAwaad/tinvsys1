@@ -1,0 +1,59 @@
+﻿<!-- start: PAGE TITLE -->
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2 class="mainTitle">أوامر توريد</h2>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE app.purchasingRequest_insert-->
+<!-- start: TABLE WITH FILTERS -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="margin-bottom-30">
+            <nav id="cl-effect-2" class="links cl-effect-2 pull-right">
+                <a ui-sref="app.purchases.order_insert"><span data-hover="جـديــــد">جـديــــد</span></a>
+                <a href><span data-hover="الأرشيف">الأرشيف</span></a>
+            </nav>
+        </div>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--<h5 class="over-title margin-bottom-15">Table <span class="text-bold">with filters</span></h5>-->
+
+
+            <div ng-controller="orderCtrl">
+                <table ng-table="tableParams" show-filter="true" class="table table-striped">
+                    <tr ng-repeat="item in $data">
+                        <td data-title="'#'">{{$index+1}}</td>
+
+                        <td data-title="'رقم امر التوريد'" filter="{ 'Order_ID': 'text' }" sortable="'Order_ID'"> {{item.Order_ID}} </td>
+                        <td data-title="'التاريخ'" filter="{ 'Order_Date': 'text' }" sortable="'Order_Date'"> {{item.Order_Date}} </td>
+                        <td data-title="'المورد'" filter="{ 'Supplier': 'text' }" sortable="'Supplier'">{{item.Supplier}}</td>
+                        <td data-title="'العنوان'" filter="{ 'Supplier_Address: 'text' }" sortable="'Supplier_Address'">{{item.Supplier_Address}}</td>
+                        <td data-title="'مدة التوريد'" filter="{ 'Order_Period': 'text' }" sortable="'Order_Period'">{{item.Order_Period}}</td>
+                        <td data-title="'الدفع'" filter="{ 'Payment_Type': 'text' }" sortable="'Payment_Type'">{{item.Payment_Type}}</td>
+                        <td data-title="'الاستلام'" filter="{ 'Receipt_Type': 'text' }" sortable="'Receipt_Type'">{{item.Receipt_Type}}</td>
+                        <td data-title="'ملاحظات'" filter="{ 'Notes': 'text' }" sortable="'Notes'">{{item.Notes}}</td>
+                        <td data-title="'عمليات'">
+
+
+                            <a ui-sref="app.purchases.order_edit({Quote_ID:{{item.Order_ID}}})" title="تعديل"><i class="fa fa-edit (alias)"></i></a>
+                            <a title="حذف" ng-click="deleteRow(item.Order_ID)"><i class="fa fa-trash-o"></i></a>
+                            <a title="أرشيف" ng-click="archieveRow(item.Order_ID)"><i class="fa fa-archive"></i></a>
+
+                        </td>
+
+                    </tr>
+                    <tr ng-show="!orders.length">
+                        <td colspan="9" style="text-align:center">لا توجد بيانات</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

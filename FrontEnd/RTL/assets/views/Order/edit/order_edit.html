@@ -2,7 +2,7 @@
 <section id="page-title">
     <div class="row">
         <div class="col-sm-8">
-            <h2 class="mainTitle">عرض اسعار جديد</h2>
+            <h2 class="mainTitle">تعديل  أمر التوريد </h2>
             <!--<span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>-->
         </div>
         <div ncy-breadcrumb></div>
@@ -14,22 +14,22 @@
     <div class="row">
         <div class="col-md-12">
 
-            <div ng-controller="quoteCtrl_insert">
+            <div ng-controller="orderCtrl_edit">
                 <form name="Form" id="form1" novalidate ng-submit="form.submit(Form)">
                     <div class="row">
                         <div class="col-md-12">
                             <fieldset>
                                 <legend>
-                                    بيانات عرض الاسعار
+                                    بيانات  أمر التوريد
                                 </legend>
-                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Quote_supplier.$dirty && Form.Quote_supplier.$invalid, 'has-success':Form.Quote_supplier.$valid}">
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Original_Request_Date.$dirty && Form.Original_Request_Date.$invalid, 'has-success':Form.Original_Request_Date.$valid}">
                                     <label class="control-label">
                                         السيد<span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="اسم المورد" class="form-control" name="Quote_supplier"  ng-model="myModel.Quote_supplier" required />
-                                    <span class="error text-small block" ng-if="Form.Quote_supplier.$dirty && Form.Quote_supplier.$invalid">اسم المورد مطلوب</span>
-                                    <span class="success text-small" ng-if="Form.Quote_supplier.$valid">المدخل صحيح</span>
-                                </div> 
+                                    <input type="text" placeholder="اسم المورد" class="form-control" name="Quote_supplier" uib-datepicker-popup="{{format}}" ng-model="myModel.Quote_supplier" is-open="inputopened" ng-init="inputopened = false" ng-click="inputopened = !inputopened" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" />
+                                    <span class="error text-small block" ng-if="Form.Original_Request_Date.$dirty && Form.Original_Request_Date.$invalid">اسم المورد مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Original_Request_Date.$valid">المدخل صحيح</span>
+                                </div>
                                 <div class="col-md-6 form-group" ng-class="{'has-error':Form.Quote_Date.$dirty && Form.Quote_Date.$invalid, 'has-success':Form.Original_Request_Date.$valid}">
                                     <label class="control-label">
                                         تحريرا فى <span class="symbol required"></span>
@@ -54,21 +54,21 @@
                                     <span class="error text-small block" ng-if="Form.Contract_period.$dirty && Form.Contract_period.$invalid"> مدة الارتباط مطلوب </span>
                                     <span class="success text-small" ng-if="Form.Contract_period.$valid">المدخل صحيح</span>
                                 </div>
-                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Payment_terms.$dirty && Form.Payment_terms.$invalid, 'has-success':Form.Payment_terms.$valid}">
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Contract_period.$dirty && Form.Contract_period.$invalid, 'has-success':Form.Contract_period.$valid}">
                                     <label class="control-label">
-                                         شروط الدفع <span class="symbol required"></span>
+                                        شروط الدفع <span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="شروط الدفع" class="form-control" name="Contract_period" ng-model="myModel.Payment_terms" required />
-                                    <span class="error text-small block" ng-if="Form.Payment_terms.$dirty && Form.Payment_terms.$invalid"> شروط الدفع مطلوب </span>
-                                    <span class="success text-small" ng-if="Form.Payment_terms.$valid">المدخل صحيح</span>
+                                    <input type="text" placeholder="شروط الدفع" class="form-control" name="Contract_period" ng-model="myModel.Contract_period" required />
+                                    <span class="error text-small block" ng-if="Form.Contract_period.$dirty && Form.Contract_period.$invalid"> شروط الدفع مطلوب </span>
+                                    <span class="success text-small" ng-if="Form.Contract_period.$valid">المدخل صحيح</span>
                                 </div>
-                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Receipt_terms.$dirty && Form.Receipt_terms.$invalid, 'has-success':Form.Receipt_terms.$valid}">
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Contract_period.$dirty && Form.Contract_period.$invalid, 'has-success':Form.Contract_period.$valid}">
                                     <label class="control-label">
                                         شروط التسليم<span class="symbol required"></span>
                                     </label>
-                                    <input type="text" placeholder="مدة الارتباط" class="form-control" name="Contract_period" ng-model="myModel.Receipt_terms" required />
-                                    <span class="error text-small block" ng-if="Form.Receipt_terms.$dirty && Form.Receipt_terms.$invalid">شروط التسليم مطلوب</span>
-                                    <span class="success text-small" ng-if="Form.Receipt_terms.$valid">المدخل صحيح</span>
+                                    <input type="text" placeholder="مدة الارتباط" class="form-control" name="Contract_period" ng-model="myModel.Contract_period" required />
+                                    <span class="error text-small block" ng-if="Form.Contract_period.$dirty && Form.Contract_period.$invalid">شروط التسليم مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Contract_period.$valid">المدخل صحيح</span>
                                 </div>
                                 <div class="col-md-6 form-group" ng-class="{'has-error':Form.Supply_Duration.$dirty && Form.Supply_Duration.$invalid, 'has-success':Form.Supply_Duration.$valid}">
                                     <label class="control-label">
@@ -94,13 +94,11 @@
                                     <span class="error text-small block" ng-if="Form.Tax_Card_No.$dirty && Form.Tax_Card_No.$invalid">رقم البطاقة الضريبية مطلوب</span>
                                     <span class="success text-small" ng-if="Form.Tax_Card_No.$valid">المدخل صحيح</span>
                                 </div>
-
                                 <div class="col-md-12  form-group">
                                     <label class="control-label">
                                         ملاحظات
                                     </label>
                                     <textarea placeholder="ملاحظات" class="form-control autosize msd-elastic: \n;" ng-model="myModel.Notes" name="Notes"></textarea>
-
 
                                 </div>
                             </fieldset>

@@ -28,11 +28,11 @@
 
             <div ng-controller="QuoteCtrl">
                 <table ng-table="tableParams" show-filter="true" class="table table-striped">
-                    <tr ng-repeat="item in $data">
+                    <tr ng-repeat="item in $data1">
                         <td data-title="'#'">{{$index+1}}</td>
 
                         <td data-title="'رقم العرض'" filter="{ 'Quote_ID': 'text' }" sortable="'Quote_ID'"> {{item.Quote_ID}} </td>
-                        <td data-title="'التاريخ'" filter="{ 'Quote_Date': 'text' }" sortable="'Quote_Date'"> {{item.Purchase_Quote_Date}} </td>
+                        <td data-title="'التاريخ'" filter="{ 'Quote_Date': 'text' }" sortable="'Quote_Date'"> {{item.Quote_Date}} </td>
                         <td data-title="'المورد'" filter="{ 'Quote_supplier': 'text' }" sortable="'Quote_supplier'">{{item.Quote_supplier}}</td>
                         <td data-title="'مدة الارتباط'" filter="{ 'Contract_period': 'text' }" sortable="'Contract_period'">{{item.Contract_period}}</td>
                         <td data-title="'مدة التوريد'" filter="{ 'Supply_Duration': 'text' }" sortable="'Supply_Duration'">{{item.Supply_Duration}}</td>

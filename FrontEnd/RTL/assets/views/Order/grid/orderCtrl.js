@@ -3,53 +3,62 @@
  * controllers for ng-table
  * Simple table with sorting and filtering on AngularJS
  */
-var dataRequest = [{
-    Purchase_Request_ID: "10",
-    Purchase_Request_Date: '324234234',
-    Original_Request_Date: 'sdfsdfsd',
-    Purchase_Requester: 'sdasdsadas',
-    Notes: 'text'
-},
-{
-    Purchase_Request_ID: "12",
-    Purchase_Request_Date: '324234234',
-    Original_Request_Date: 'sdfsdfsd',
-    Purchase_Requester: 'sdasdsadas',
-    Notes: 'ali'
-}
+var data = [{
+        Order_ID: "10",
+        Order_Date: '324234234',
+        Supplier: 'sdfsdfsd',
+        Supplier_Address: 'jfkjfk',
+        Order_Period: '1 month',
+        Payment_Type: '623727',
+        Receipt_Type:'787488',
+        Notes: 'text'
+    },
+    {
+        Order_ID: "12",
+        Order_Date: '32224234',
+        Supplier: 'sdfsdfsd',
+        Supplier_Address: 'jfkjfk',
+        Order_Period: '1 month',
+        Payment_Type: '623727',
+        Receipt_Type: '787488',
+        Notes: 'kkk'
+    }
 ];
 
-app.controller('purchasingRequestCtrl', ["$scope", "$filter", "ngTableParams", "$timeout", "SweetAlert", function ($scope, $filter, ngTableParams, $timeout, SweetAlert) {
+app.controller('orderCtrl', ["$scope", "$filter", "ngTableParams", "$timeout", "SweetAlert", function ($scope, $filter, ngTableParams, $timeout, SweetAlert) {
 
     $scope.header = [
-        { title: "كودالطلب", name: "Purchase_Request_ID" },
-        { title: "تاريخ انشاء الطلب", name: "Purchase_Request_Date" },
-        { title: "تاريخ التقدم للطلب", name: "Original_Request_Date" },
-        { title: "مقدم من", name: "Purchase_Requester" },
+        { title: "رقم امر التوريد", name: "Order_ID" },
+        { title: "التاريخ ", name: "Order_Date" },
+        { title: "المورد", name: "Supplier" },
+        { title: " العنوان", name: "Supplier_Address" },
+        { title: "مدة التوريد", name: "Order_Period" },
+        { title: "الدفع", name: "Payment_Type" },
+        { title: "الاستلام", name: "Receipt_Type" },
         { title: "ملاحظات", name: "Notes" }
     ];
     $scope.tableParams = new ngTableParams({
         page: 1, // show first page
         count: 5, // count per page
         sorting: {
-            Purchase_Request_ID: 'asc' // initial sorting
+            Order_ID: 'asc' // initial sorting
         }, // count per page
         filter: {
-            Purchase_Request_ID: '' // initial filter
+            Order_ID: '' // initial filter
         }
     }, {
-            total: dataRequest.length,
+            total: data.length,
             getData: function ($defer, params) {
                 // use build-in angular filter
-                var orderedData = params.filter() ? $filter('filter')(dataRequest, params.filter()) : dataRequest;
+                var orderedData = params.filter() ? $filter('filter')(data, params.filter()) : data;
 
                 orderedData = params.sorting() ? $filter('orderBy')(orderedData, params.orderBy()) : orderedData;
-                $scope.purchaseRequests = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+                $scope.orders = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
 
                 params.total(orderedData.length);
 
                 // set total for recalc pagination
-                $defer.resolve($scope.purchaseRequests);
+                $defer.resolve($scope.orders);
             }
         });
 
@@ -88,7 +97,7 @@ app.controller('purchasingRequestCtrl', ["$scope", "$filter", "ngTableParams", "
     }
 
     var deleteFromDB = function (id) {
-        alert(id);
+      //  alert(id);
     }
 
 

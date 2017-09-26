@@ -3,7 +3,7 @@
  * controllers for ng-table
  * Simple table with sorting and filtering on AngularJS
  */
-var data = [{
+var data1 = [{
     Quote_ID: "10",
     Quote_Date: '324234234',
     Quote_supplier: 'sdfsdfsd',
@@ -47,10 +47,10 @@ app.controller('QuoteCtrl', ["$scope", "$filter", "ngTableParams", "$timeout", "
             Quote_ID: '' // initial filter
         }
     }, {
-            total: data.length,
+            total: data1.length,
             getData: function ($defer, params) {
                 // use build-in angular filter
-                var orderedData = params.filter() ? $filter('filter')(data, params.filter()) : data;
+                var orderedData = params.filter() ? $filter('filter')(data1, params.filter()) : data1;
 
                 orderedData = params.sorting() ? $filter('orderBy')(orderedData, params.orderBy()) : orderedData;
                 $scope.quotes = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
