@@ -1,0 +1,205 @@
+<!-- start: PAGE TITLE -->
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2 class="mainTitle">تعديل عرض الاسعار </h2>
+            <!--<span class="mainDescription">Client side validation it’s very important if it is used as help for the user to complete with success the submission of a form.</span>-->
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE -->
+<!-- start: FORM VALIDATION -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div ng-controller="examinationComitteeCtrl_edit">
+                <form name="Form" id="form1" novalidate ng-submit="form.submit(Form)">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <legend>
+                                    بيانات عرض الاسعار
+                                </legend>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Original_Request_Date.$dirty && Form.Original_Request_Date.$invalid, 'has-success':Form.Original_Request_Date.$valid}">
+                                    <label class="control-label">
+                                        السيد<span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="اسم المورد" class="form-control" name="Quote_supplier" uib-datepicker-popup="{{format}}" ng-model="myModel.Quote_supplier" is-open="inputopened" ng-init="inputopened = false" ng-click="inputopened = !inputopened" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" />
+                                    <span class="error text-small block" ng-if="Form.Original_Request_Date.$dirty && Form.Original_Request_Date.$invalid">اسم المورد مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Original_Request_Date.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Quote_Date.$dirty && Form.Quote_Date.$invalid, 'has-success':Form.Original_Request_Date.$valid}">
+                                    <label class="control-label">
+                                        تحريرا فى <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="التاريخ" class="form-control" name="Quote_Date" uib-datepicker-popup="{{format}}" ng-model="myModel.Quote_Date" is-open="inputopened" ng-init="inputopened = false" ng-click="inputopened = !inputopened" datepicker-options="datepickerOptions" ng-required="true" close-text="Close" />
+                                    <span class="error text-small block" ng-if="Form.Quote_Date.$dirty && Form.Quote_Date.$invalid">التاريخ مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Quote_Date.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Quote_ID.$dirty && Form.Quote_ID.$invalid, 'has-success':Form.Quote_ID.$valid}">
+                                    <label class="control-label">
+                                        رقم العرض <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="رقم العرض" class="form-control" name="Quote_ID" ng-model="myModel.Quote_ID" required />
+                                    <span class="error text-small block" ng-if="Form.Quote_ID.$dirty && Form.Quote_ID.$invalid">رقم العرض مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Quote_ID.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Contract_period.$dirty && Form.Contract_period.$invalid, 'has-success':Form.Contract_period.$valid}">
+                                    <label class="control-label">
+                                        مدة الارتباط <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="مدة الارتباط" class="form-control" name="Contract_period" ng-model="myModel.Contract_period" required />
+                                    <span class="error text-small block" ng-if="Form.Contract_period.$dirty && Form.Contract_period.$invalid"> مدة الارتباط مطلوب </span>
+                                    <span class="success text-small" ng-if="Form.Contract_period.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Contract_period.$dirty && Form.Contract_period.$invalid, 'has-success':Form.Contract_period.$valid}">
+                                    <label class="control-label">
+                                        شروط الدفع <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="شروط الدفع" class="form-control" name="Contract_period" ng-model="myModel.Contract_period" required />
+                                    <span class="error text-small block" ng-if="Form.Contract_period.$dirty && Form.Contract_period.$invalid"> شروط الدفع مطلوب </span>
+                                    <span class="success text-small" ng-if="Form.Contract_period.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Contract_period.$dirty && Form.Contract_period.$invalid, 'has-success':Form.Contract_period.$valid}">
+                                    <label class="control-label">
+                                        شروط التسليم<span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="مدة الارتباط" class="form-control" name="Contract_period" ng-model="myModel.Contract_period" required />
+                                    <span class="error text-small block" ng-if="Form.Contract_period.$dirty && Form.Contract_period.$invalid">شروط التسليم مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Contract_period.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Supply_Duration.$dirty && Form.Supply_Duration.$invalid, 'has-success':Form.Supply_Duration.$valid}">
+                                    <label class="control-label">
+                                        مدة التوريد <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="مدة التوريد" class="form-control" name="Supply_Duration" ng-model="myModel.Supply_Duration" required />
+                                    <span class="error text-small block" ng-if="Form.Supply_Duration.$dirty && Form.Supply_Duration.$invalid">مطلوب مدة التوريد</span>
+                                    <span class="success text-small" ng-if="Form.Supply_Duration.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Tax_File_No.$dirty && Form.Tax_File_No.$invalid, 'has-success':Form.Tax_File_No.$valid}">
+                                    <label class="control-label">
+                                        رقم الملف الضريبى <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="رقم الملف الضريبى" class="form-control" name="Tax_File_No" ng-model="myModel.Tax_File_No" required />
+                                    <span class="error text-small block" ng-if="Form.Tax_File_No.$dirty && Form.Tax_File_No.$invalid">رقم الملف الضريبى مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Tax_File_No.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-6 form-group" ng-class="{'has-error':Form.Tax_Card_No.$dirty && Form.Tax_Card_No.$invalid, 'has-success':Form.Tax_File_No.$valid}">
+                                    <label class="control-label">
+                                        رقم البطاقة الضريبية <span class="symbol required"></span>
+                                    </label>
+                                    <input type="text" placeholder="رقم البطاقة الضريبية" class="form-control" name="Tax_Card_No" ng-model="myModel.Tax_Card_No" required />
+                                    <span class="error text-small block" ng-if="Form.Tax_Card_No.$dirty && Form.Tax_Card_No.$invalid">رقم البطاقة الضريبية مطلوب</span>
+                                    <span class="success text-small" ng-if="Form.Tax_Card_No.$valid">المدخل صحيح</span>
+                                </div>
+                                <div class="col-md-12  form-group">
+                                    <label class="control-label">
+                                        ملاحظات
+                                    </label>
+                                    <textarea placeholder="ملاحظات" class="form-control autosize msd-elastic: \n;" ng-model="myModel.Notes" name="Notes"></textarea>
+
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>
+                                    اصناف طلب الشراء
+                                </legend>
+                                <div class="row">
+                                    <div class="col-md-3  form-group" ng-class="{'has-error':Form.Item_Name.$dirty && Form.Item_Name.$invalid, 'has-success':Form.Item_Name.$valid}">
+                                        <label class="control-label">
+                                            الصنف <span class="symbol required"></span>
+                                        </label>
+                                        <select ng-model="myModel.Item_Name" name="Item_Name" class="form-control" required>
+                                            <option value="'sightseeing'">اقلام</option>
+                                            <option value="'business'">اجهزة</option>
+                                            <option value="honeymoon">كراسي</option>
+                                            <option value="food">علب</option>
+                                            <option value="shopping">مكاتب</option>
+                                        </select>
+                                        <span class="error text-small block" ng-if="Form.Item_Name.$dirty && Form.Item_Name.$error.required">حالةالصنف مطلوب</span>
+                                        <span class="success text-small block" ng-if="Form.Item_Name.$valid">المدخل صحيح</span>
+                                    </div>
+
+                                    <div class="col-md-3   form-group" ng-class="{'has-error':Form.uoi_name_ar.$dirty && Form.uoi_name_ar.$invalid, 'has-success':Form.uoi_name_ar.$valid}">
+                                        <label class="control-label">
+                                            الوحدة <span class="symbol required"></span>
+                                        </label>
+                                        <select ng-model="myModel.uoi_name_ar" name="uoi_name_ar" class="form-control" required>
+                                            <option value="sightseeing">كرتونه</option>
+                                            <option value="business">كيلو</option>
+                                            <option value="honeymoon">طن</option>
+                                            <option value="food">قطعة</option>
+                                        </select>
+                                        <span class="error text-small block" ng-if="Form.uoi_name_ar.$dirty && Form.uoi_name_ar.$error.required">حالةالصنف مطلوب</span>
+                                        <span class="success text-small block" ng-if="Form.uoi_name_ar.$valid">المدخل صحيح</span>
+                                    </div>
+
+                                    <div class="form-group col-md-3" ng-class="{'has-error':Form.quantity.$dirty && Form.quantity.$invalid, 'has-success':Form.quantity.$valid}">
+                                        <label class="control-label">
+                                            الكمية<span class="symbol required"></span>
+                                        </label>
+                                        <input type="number" name="quantity" placeholder="الكمية المطلوية" class="form-control" ng-model="myModel.quantity" min="1" required />
+                                        <span class="error text-small block" ng-if="Form.quantity.$error.min">الرقم موجب فقط</span>
+                                        <span class="error text-small block" ng-if="Form.quantity.$error.number">رقم فقط</span>
+                                        <span class="error text-small block" ng-if="Form.uoi_name_ar.$dirty && Form.uoi_name_ar.$error.required">المدخل مطلوب</span>
+                                        <span class="success text-small block" ng-if="Form.quantity.$valid">المدخل صحيح</span>
+                                    </div>
+                                    <div class="col-md-3  form-group" ng-class="{'has-error':Form.Item_status_Name.$dirty && Form.Item_status_Name.$invalid, 'has-success':Form.Item_status_Name.$valid}">
+                                        <label class="control-label">
+                                            حالة الصنف <span class="symbol required"></span>
+                                        </label>
+                                        <select ng-model="myModel.Item_status_Name" name="Item_status_Name" class="form-control" required>
+                                            <option value="business">جديد</option>
+                                            <option value="honeymoon">مستعمل</option>
+                                        </select>
+                                        <span class="error text-small block" ng-if="Form.Item_status_Name.$dirty && Form.Item_status_Name.$error.required">حالةالصنف مطلوب</span>
+                                        <span class="success text-small block" ng-if="Form.Item_status_Name.$valid">المدخل صحيح</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class=" form-group  col-md-6 " ng-class="{'has-error':Form.Item_Specification.$dirty && Form.Item_Specification.$invalid, 'has-success':Form.Item_Specification.$valid}">
+                                        <label class="control-label">
+                                            المواصفات الفنية <span class="symbol required"></span>
+
+                                        </label>
+                                        <textarea placeholder="المواصفات الفنية" class="form-control autosize msd-elastic: \n;" ng-model="myModel.Item_Specification" name="Item_Specification" required></textarea>
+                                        <span class="error text-small block" ng-if="Form.Item_Specification.$dirty && Form.Item_Specification.$error.required">المواصفات الفنية مطلوبة</span>
+                                        <span class="success text-small block" ng-if="Form.Item_Specification.$valid">المدخل صحيح</span>
+
+                                    </div>
+                                    <div class="col-md-6  form-group">
+                                        <label class="control-label">
+                                            ملاحظات
+                                        </label>
+                                        <textarea placeholder="ملاحظات" class="form-control autosize msd-elastic: \n;" ng-model="myModel.Notes" name="Notes"></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-primary">
+                                    حفـــظ
+                                </button>
+                                <button type="reset" class="btn btn-primary btn-o" ng-click="form.reset(Form)">
+                                    حــذف
+                                    </
+                                </button>
+                                <!--<button class="btn btn-default">
+                                    checkValid = {{ Form.$valid }}
+                                </button>-->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--<pre class="margin-top-20">{{ myModel | json }}</pre>-->
+        </div>
+    </div>
+</div>
+<!-- end: FORM VALIDATION -->

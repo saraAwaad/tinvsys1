@@ -162,6 +162,33 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
                 }
             })
 
+            .state('app.purchases.examinationComittee', {
+                url: '/examinationComittee',
+                templateUrl: "assets/views/Examination_committee/grid/examinationComittee_grid.html",
+                title: 'لجان الفحص',
+                icon: 'ti-layout-media-left-alt',
+                ncyBreadcrumb: {
+                    label: 'لجان الفحص'
+                },
+                resolve: loadSequence('ngTable')
+            })
+            .state('app.purchases.examinationComittee_insert', {
+                url: '/examinationComittee_insert',
+                templateUrl: "assets/views/Examination_committee/insert/examinationComittee_insert.html",
+                title: ' لجنة فحص جديد',
+                ncyBreadcrumb: {
+                    label: ' لجنة فحص جديد'
+                }
+            })
+            .state('app.purchases.examinationComittee_edit', {
+                url: '/examinationComittee_edit/:examinationComittee_ID',
+                templateUrl: "assets/views/Examination_committee/edit/examinationComittee_edit.html",
+                title: 'تعديل  لجنة الفحص',
+                ncyBreadcrumb: {
+                    label: 'تعديل  لجنة الفحص'
+                }
+            })
+
 
 
 

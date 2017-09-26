@@ -1,0 +1,59 @@
+﻿<!-- start: PAGE TITLE -->
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2 class="mainTitle">لجان الفحص</h2>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE app.purchasingRequest_insert-->
+<!-- start: TABLE WITH FILTERS -->
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="margin-bottom-30">
+            <nav id="cl-effect-2" class="links cl-effect-2 pull-right">
+                <a ui-sref="app.purchases.examinationComittee_insert"><span data-hover="جـديــــد">جـديــــد</span></a>
+                <a href><span data-hover="الأرشيف">الأرشيف</span></a>
+            </nav>
+        </div>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!--<h5 class="over-title margin-bottom-15">Table <span class="text-bold">with filters</span></h5>-->
+
+
+            <div ng-controller="examinationComitteeCtrl">
+                <table ng-table="tableParams" show-filter="true" class="table table-striped">
+                    <tr ng-repeat="item in $dataexam">
+                        <td data-title="'#'">{{$index+1}}</td>
+
+                        <td data-title="'رقم لجنة الفحص'" filter="{ 'Examination_Comittee_ID': 'text' }" sortable="'Examination_Comittee_ID'"> {{item.Examination_Comittee_ID}} </td>
+                        <td data-title="'اليوم'" filter="{ 'examinationComittee_Day': 'text' }" sortable="'examinationComittee_Day'"> {{item.examinationComittee_Day}} </td>
+                        <td data-title="'التاريخ'" filter="{ 'examinationComittee_Date': 'text' }" sortable="'examinationComittee_Date'">{{item.examinationComittee_Date}}</td>
+                        <td data-title="'كود  لجنة الفحص'" filter="{ 'examinationComittee_Code': 'text' }" sortable="'examinationComittee_Code'">{{item.examinationComittee_Code}}</td>
+                        <td data-title="'أمر التوريد الصادر'" filter="{ 'examinationComittee_Order': 'text' }" sortable="'examinationComittee_Order'">{{item.examinationComittee_Order}}</td>
+                        <td data-title="'تاريخ أمر التوريد'" filter="{ 'Order_Date': 'text' }" sortable="'Order_Date'">{{item.Order_Date}}</td>
+                        <td data-title="'رًيس اللجنة'" filter="{ 'Member_Name': 'text' }" sortable="'Member_Name'">{{item.Member_Name}}</td>
+                        <td data-title="'ملاحظات'" filter="{ 'Notes': 'text' }" sortable="'Notes'">{{item.Notes}}</td>
+                        <td data-title="'عمليات'">
+
+
+                            <a ui-sref="app.purchases.examinationComittee_edit({Examination_Comittee_ID:{{item.Examination_Comittee_ID}}})" title="تعديل"><i class="fa fa-edit (alias)"></i></a>
+                            <a title="حذف" ng-click="deleteRow(item.Examination_Comittee_ID)"><i class="fa fa-trash-o"></i></a>
+                            <a title="أرشيف" ng-click="archieveRow(item.Examination_Comittee_ID)"><i class="fa fa-archive"></i></a>
+
+                        </td>
+
+                    </tr>
+                    <tr ng-show="!examcommitees.length">
+                        <td colspan="9" style="text-align:center">لا توجد بيانات</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
